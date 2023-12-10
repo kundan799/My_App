@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import Create from "./components/Create";
+import Navbar from "./components/Navbar";
+import { BowserRouter, Routes, Route } from "react-router-dom";
+import Read from "./components/Read";
+import Edit from "./components/Edit";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/create" element={<Create />} />
+        <Route path="/" element={<Read />} />
+        <Route path="/edit/:id" element={<Edit />} />
+      </Routes>
     </div>
   );
 }
